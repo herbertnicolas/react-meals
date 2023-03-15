@@ -1,47 +1,49 @@
+import Card from "../UI/Card";
 import classes from "./AvailableMeals.module.css";
+import MealItem from "./MealItem/MealItem";
 
 const pratos = [
   {
-    id: 1,
-    nome: "Acarajé",
-    descricao:
-      "Bolinho de feijão fradinho frito em azeite de dendê, recheado com vatapá, camarão seco e pimenta.",
-    preco: 7.0,
+    id: 'm1',
+    nome: 'Sushi',
+    descricao: 'Finest fish and veggies',
+    preco: 22.99,
   },
   {
-    id: 2,
-    nome: "Baião de Dois",
-    descricao:
-      "Prato feito com arroz, feijão-de-corda, queijo coalho, carne-seca, linguiça e temperos.",
-    preco: 20.0,
+    id: 'm2',
+    nome: 'Schnitzel',
+    descricao: 'A german specialty!',
+    preco: 16.5,
   },
   {
-    id: 3,
-    nome: "Moqueca de Peixe",
-    descricao:
-      "Peixe cozido em molho de tomate, cebola, pimentão, leite de coco e azeite de dendê.",
-    preco: 35.0,
+    id: 'm3',
+    nome: 'Barbecue Burger',
+    descricao: 'American, raw, meaty',
+    preco: 12.99,
   },
   {
-    id: 4,
-    nome: "Buchada de Bode",
-    descricao:
-      "Prato feito com as vísceras do bode (estômago, tripa e fígado), temperadas com cebola, coentro, pimenta e outros temperos.",
-    preco: 25.0,
+    id: 'm4',
+    nome: 'Green Bowl',
+    descricao: 'Healthy...and green...',
+    preco: 18.99,
   },
 ];
 
 const AvailableMeals = (props) => {
+  const meals = pratos.map((prato) => (
+    <MealItem
+      key={prato.id}
+      nome={prato.nome}
+      descricao={prato.descricao}
+      preco={prato.preco}
+    />
+  ));
+
   return (
     <section className={classes.meals}>
-      <ul>
-        {pratos.map((prato) => (
-          <li>
-            {prato.nome}
-            {prato.preco}
-          </li>
-        ))}
-      </ul>
+      <Card>
+        <ul>{meals}</ul>  
+      </Card>
     </section>
   );
 };
