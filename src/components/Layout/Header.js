@@ -13,8 +13,6 @@ export default function Header(props){
             <div className={classes['main-image']}>
                 <img src={meals} alt="A table full of delicious food!"/>
             </div>
-            
-
         </Fragment>
     )
 
